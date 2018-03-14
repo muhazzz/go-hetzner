@@ -2,6 +2,7 @@ package hetzner
 
 import "time"
 
+/*
 type Product struct {
 	ID            string   `json:"id"`
 	Name          string   `json:"name"`
@@ -14,6 +15,29 @@ type Product struct {
 	PriceSetup    string   `json:"price_setup"`
 	PriceVat      string   `json:"price_vat"`
 	PriceSetupVat string   `json:"price_setup_vat"`
+}
+*/
+
+type Product struct {
+	ID          string   `json:"id"`
+	Name        string   `json:"name"`
+	Description []string `json:"description"`
+	Traffic     string   `json:"traffic"`
+	Dist        []string `json:"dist"`
+	Arch        []int    `json:"arch"`
+	Lang        []string `json:"lang"`
+	Location    []string `json:"location"`
+	Prices      []struct {
+		Location string `json:"location"`
+		Price    struct {
+			Net   string `json:"net"`
+			Gross string `json:"gross"`
+		} `json:"price"`
+		PriceSetup struct {
+			Net   string `json:"net"`
+			Gross string `json:"gross"`
+		} `json:"price_setup"`
+	} `json:"prices"`
 }
 
 type AuthorizedKey struct {
